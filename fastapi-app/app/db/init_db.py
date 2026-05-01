@@ -2,7 +2,7 @@ import psycopg2
 
 def create_database():
     conn = psycopg2.connect(
-        dbname="dbname",
+        dbname="ecommerce",
         user="user",
         password="pass",
         host="localhost"
