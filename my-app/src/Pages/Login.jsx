@@ -22,12 +22,12 @@ function Login() {
       console.log("Login Response:", res);
 
       // ✅ Example: store token (if backend sends it)
-      if (res.access_token) {
-        localStorage.setItem("token", res.access_token);
+      if (res.Token) {
+        localStorage.setItem("token", res.Token);
+        // ✅ Redirect after login
+        navigate("/products");
       }
 
-      // ✅ Redirect after login
-      navigate("/users");
 
     } catch (err) {
       setError(err);
@@ -36,8 +36,8 @@ function Login() {
     }
   };
 
-  const handleGoogleLogin = () => {
-    window.location.href = "http://127.0.0.1:8000/login/google";
+  const handleGithubLogin = () => {
+    window.location.href = "http://localhost:8000/api/login/github";
   };
 
   return (
@@ -68,9 +68,9 @@ function Login() {
         <button
           type="button"
           style={styles.googleBtn}
-          onClick={handleGoogleLogin}
+          onClick={handleGithubLogin}
         >
-          Continue with Google
+          Continue with Github
         </button>
 
         {error && <p style={styles.error}>{error}</p>}

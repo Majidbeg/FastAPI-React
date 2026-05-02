@@ -11,14 +11,10 @@ function HomePage() {
       <div style={styles.card}>
         <h1 style={styles.title}>Welcome 👋</h1>
         <p style={styles.subtitle}>
-          Manage users, signup, and login easily
+          Manage signup, and login easily
         </p>
 
         <div style={styles.buttonGroup}>
-          <Link to="/users" style={styles.link}>
-            <button style={styles.primaryBtn}>View Users</button>
-          </Link>
-
           <Link to="/signup" style={styles.link}>
             <button style={styles.secondaryBtn}>Signup</button>
           </Link>

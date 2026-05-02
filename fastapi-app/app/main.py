@@ -2,6 +2,7 @@ from fastapi import FastAPI
 from app.db.database import Base, engine
 from app.db.init_db import create_database
 from app.routes.auth import router
+from app.routes.products import router
 from fastapi.middleware.cors import CORSMiddleware
 
 
@@ -11,6 +12,7 @@ origins = [
     "http://localhost:3000",   # React
     "http://127.0.0.1:3000",
     "http://localhost:5173",
+    "http://127.0.0.1:8000"
 
 ]
 
@@ -23,7 +25,8 @@ app.add_middleware(
 )
 
 # 👇 IMPORTANT
-from app.models import user  
+from app.models import user
+from app.models import products
 
 
 app.include_router(router)

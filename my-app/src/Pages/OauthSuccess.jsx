@@ -14,7 +14,7 @@ function OAuthSuccess() {
       // 2. Store token
       localStorage.setItem("token", token);
       // 3. Redirect to dashboard
-      navigate("/users");
+      navigate("/products");
     } else {
       navigate("/login");
     }

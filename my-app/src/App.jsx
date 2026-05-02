@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import UsersPage from "./Pages/UsersPage";
+import Products from "./Pages/Products";
 import LandingPage from "./Pages/LandingPage";
 import Login from "./Pages/Login";
 import Signup from "./Pages/Signup";
@@ -10,7 +10,7 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/users" element={<UsersPage />} />
+        <Route path="/products" element={<Products />} />
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/oauth-success" element={<OAuthSuccess />} />

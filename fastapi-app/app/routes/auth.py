@@ -1,11 +1,10 @@
-from fastapi import APIRouter, Depends, HTTPException, status
+from fastapi import APIRouter, Depends, HTTPException, status, Request
 from pydantic import BaseModel
 from sqlalchemy.orm import Session
 from app.db.database import SessionLocal
 from app.db.database import get_db
 from app.models.user import User
 
-from fastapi import Request
 from fastapi.responses import RedirectResponse
 import httpx
 import os #allow us to use .env file
@@ -43,9 +42,23 @@ def login(data:LoginRequest, db: Session = Depends(get_db)):
            details="User not found"
         )
      
+        # 🔐 Create JWT
+        # token = create_jwt(user)
+     print(user.email, "=========")
+     token = jwt.encode (
+            {
+                "sub": user.id,
+                "email": user.email,
+                "exp": datetime.now(timezone.utc) + timedelta(hours=1)
+            },
+            JWT_SECRET,
+            algorithm="HS256"
+     )
+     
      return {
         "message": "Logged in successfully",
-        "User_email": user.email 
+        "User_email": user.email , 
+        "Token": token
      }
     
     except HTTPException as e:

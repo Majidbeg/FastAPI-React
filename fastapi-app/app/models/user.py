@@ -1,4 +1,7 @@
-from sqlalchemy import Column, Integer, String
+from sqlalchemy import Column, Integer, String, Float, Boolean, DateTime, Numeric
+from sqlalchemy.dialects.postgresql import ARRAY
+from app.db.database import Base
+from datetime import datetime
 from app.db.database import Base
 
 class User(Base):
@@ -12,3 +15,7 @@ class User(Base):
     #auth coloumns
     github_id = Column(String, unique=True, nullable=True)
     auth_provider = Column(String, default="local")  # local / github
+
+
+
+    

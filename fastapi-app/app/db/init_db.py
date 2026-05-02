@@ -3,8 +3,8 @@ import psycopg2
 def create_database():
     conn = psycopg2.connect(
         dbname="postgres",
-        user="user",
-        password="pass",
+        user="postgres",
+        password="postgres",
         host="localhost"
     )
     conn.autocommit = True
